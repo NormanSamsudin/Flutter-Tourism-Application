@@ -9,7 +9,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
   AuthBloc({required this.authRepository}) : super(AuthInitial()) {
     on<LoginRequested>(_onLoginRequested);
-        on<LogoutRequested>(_onLogoutRequested);
+    on<LogoutRequested>(_onLogoutRequested);
   }
 
   void _onLoginRequested(LoginRequested event, Emitter<AuthState> emit) async {
