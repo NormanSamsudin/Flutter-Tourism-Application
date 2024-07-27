@@ -7,3 +7,5 @@ class LoginRequested extends AuthEvent {
 
   LoginRequested(this.email, this.password);
 }
+
+class LogoutRequested extends AuthEvent {}

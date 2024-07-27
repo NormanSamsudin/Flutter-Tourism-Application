@@ -9,6 +9,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
   AuthBloc({required this.authRepository}) : super(AuthInitial()) {
     on<LoginRequested>(_onLoginRequested);
+        on<LogoutRequested>(_onLogoutRequested);
   }
 
   void _onLoginRequested(LoginRequested event, Emitter<AuthState> emit) async {
@@ -23,4 +24,10 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       emit(AuthError(e.toString()));
     }
   }
+
+    void _onLogoutRequested(LogoutRequested event, Emitter<AuthState> emit) {
+    emit(AuthInitial());
+  }
+
+
 }

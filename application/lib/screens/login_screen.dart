@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../bloc/auth_bloc.dart';
 import '../bloc/auth_event.dart';
 import '../bloc/auth_state.dart';
-import 'welcome_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
@@ -32,9 +31,7 @@ class LoginScreen extends StatelessWidget {
             BlocConsumer<AuthBloc, AuthState>(
               listener: (context, state) {
                 if (state is AuthAuthenticated) {
-                  Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(builder: (context) => WelcomeScreen()),
-                  );
+                  Navigator.of(context).pushReplacementNamed('/welcome');
                 } else if (state is AuthError) {
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(content: Text('Error: ${state.message}')),
